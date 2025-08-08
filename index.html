@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dopharma — Quản lý Hồ sơ & Gói thầu</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="watermark">DOPHARMA</div>
+
+  <header class="container header">
+    <div class="brand">
+      <img src="logo.png" alt="Dopharma" class="logo"/>
+      <div>
+        <h1>Quản lý Hồ sơ & Gói thầu</h1>
+        <p>Lưu sản phẩm, giấy phép, gói thầu; tìm kiếm nhanh; cảnh báo hết hạn.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="exportBtn">Sao lưu</button>
+      <label class="import-btn">
+        Phục hồi <input id="importInput" type="file" accept="application/json"/>
+      </label>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="tabs">
+      <button data-tab="products" class="active">Hồ sơ sản phẩm</button>
+      <button data-tab="licenses">Hồ sơ giấy phép</button>
+      <button data-tab="tenders">Gói thầu</button>
+    </nav>
+
+    <section class="toolbar">
+      <input id="searchInput" placeholder="Tìm kiếm nhanh..."/>
+      <button id="addBtn">Thêm bản ghi</button>
+    </section>
+
+    <section id="products" class="tab-panel active">
+      <table>
+        <thead>
+          <tr>
+            <th>Mã SP</th><th>Tên sản phẩm</th><th>Hoạt chất</th><th>Nhà SX</th><th>Hết hạn</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="pBody"></tbody>
+      </table>
+    </section>
+
+    <section id="licenses" class="tab-panel">
+      <table>
+        <thead>
+          <tr>
+            <th>Mã GP</th><th>Tên giấy phép</th><th>Cơ quan cấp</th><th>Hết hạn</th><th>Trạng thái</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="lBody"></tbody>
+      </table>
+    </section>
+
+    <section id="tenders" class="tab-panel">
+      <table>
+        <thead>
+          <tr>
+            <th>Mã</th><th>Tên gói thầu</th><th>Ngày</th><th>Sản phẩm</th><th>Khối lượng</th><th>Đơn giá</th><th>Giá trúng</th><th>Kết quả</th><th>Link</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="tBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <dialog id="formDialog">
+    <form method="dialog" id="formEl">
+      <h3 id="formTitle">Thêm bản ghi</h3>
+      <div id="formFields" class="grid"></div>
+      <menu class="dialog-actions">
+        <button value="cancel">Hủy</button>
+        <button id="saveBtn" value="default">Lưu</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <footer class="container tiny">© Dopharma</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

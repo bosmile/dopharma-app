@@ -1,0 +1,36 @@
+
+:root { --red: #e11; --bg: #fafafa; --border: #e5e7eb; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: #111; }
+.container { max-width: 1200px; margin: 0 auto; padding: 16px; }
+.header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.brand { display:flex; align-items:center; gap:12px; }
+.logo { width:48px; height:48px; object-fit:contain; }
+.actions button, .import-btn { padding: 8px 12px; border: 1px solid var(--border); background:#fff; border-radius:8px; cursor:pointer; }
+.import-btn input { display:none; }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+.tabs button { padding:10px; border:1px solid var(--border); background:#fff; border-radius:10px; cursor:pointer; }
+.tabs .active { border-color: var(--red); color: var(--red); font-weight:600; }
+.toolbar { display:flex; gap:8px; align-items:center; margin:12px 0; }
+.toolbar input { flex:1; padding:10px; border:1px solid var(--border); border-radius:8px; background:#fff; }
+.toolbar button { padding:10px 12px; border:1px solid var(--border); background:#fff; border-radius:8px; cursor:pointer; }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+table { width:100%; border-collapse: collapse; background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+thead th { background:#f3f4f6; text-align:left; padding:10px; border-bottom:1px solid var(--border); }
+tbody td { padding:10px; border-bottom:1px solid var(--border); }
+.badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; }
+.badge.warn { background:#fee2e2; color:#991b1b; }
+.badge.ok { background:#e5e7eb; color:#374151; }
+.actions-cell button { background:transparent; border:none; color:#666; cursor:pointer; }
+.grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+.grid .full { grid-column: 1 / -1; }
+input[type='text'], input[type='date'], input[type='number'], textarea, select { width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; }
+textarea { min-height: 80px; }
+dialog { border:none; border-radius:12px; padding:0; }
+dialog::backdrop { background: rgba(0,0,0,0.25); }
+dialog form { padding:16px; min-width: 640px; }
+.dialog-actions { display:flex; justify-content:flex-end; gap:8px; padding-top:12px; }
+.tiny { font-size:12px; color:#6b7280; text-align:center; }
+.watermark { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; pointer-events:none; user-select:none; font-weight:900; color: var(--red); opacity:0.06; font-size: min(20vw, 200px); transform: rotate(-10deg); }
+@media (max-width: 720px) { .grid { grid-template-columns: 1fr; } dialog form { min-width: 90vw; } }
