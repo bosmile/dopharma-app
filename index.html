@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Dopharma — Quản lý Hồ sơ & Gói thầu</title>
   <link rel="stylesheet" href="styles.css"/>
+  <!-- SheetJS for Excel import/export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.19.3/dist/xlsx.full.min.js"></script>
 </head>
 <body>
   <div class="watermark">DOPHARMA</div>
@@ -35,17 +37,40 @@
     <section class="toolbar">
       <input id="searchInput" placeholder="Tìm kiếm nhanh..."/>
       <button id="addBtn">Thêm bản ghi</button>
+      <label class="import-btn">
+        Nhập Excel <input id="excelInput" type="file" accept=".xlsx,.xls"/>
+      </label>
+      <button id="exportExcelBtn">Xuất Excel (dữ liệu đang lọc)</button>
     </section>
 
     <section id="products" class="tab-panel active">
+      <div class="table-scroll">
       <table>
         <thead>
           <tr>
-            <th>Mã SP</th><th>Tên sản phẩm</th><th>Hoạt chất</th><th>Nhà SX</th><th>Hết hạn</th><th></th>
+            <th>STT</th>
+            <th>HDSD/Mẫu nhãn</th>
+            <th>Số GPLH</th>
+            <th>Ngày hết hạn SĐK</th>
+            <th>Mã HS gia hạn</th>
+            <th>Ngày tiếp nhận HS gia hạn</th>
+            <th>Được tiếp tục sử dụng GĐKLH</th>
+            <th>Tên thuốc</th>
+            <th>Hoạt chất</th>
+            <th>Hàm lượng</th>
+            <th>Số quyết định</th>
+            <th>Năm cấp</th>
+            <th>Đợt cấp</th>
+            <th>Dạng bào chế</th>
+            <th>Quy cách đóng gói</th>
+            <th>Tiêu chuẩn</th>
+            <th>Tuổi thọ</th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="pBody"></tbody>
       </table>
+      </div>
     </section>
 
     <section id="licenses" class="tab-panel">
